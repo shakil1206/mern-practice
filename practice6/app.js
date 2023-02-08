@@ -1,22 +1,15 @@
 const express = require('express');
 const app = express();
+const userRouter = require('./routes/users.route');
 
+app.use('/api/user', userRouter);
 
-app.get('/', (req, res) => {
-    res.send("I am from home")
+app.use('/', (req, res) => {
+    res.send("<h1>I am from Home page</h1>")
 })
 
-app.get('/about', (req, res) => {
-    res.send("I am from about get")
-})
-app.post('/about', (req, res) => {
-    res.send("I am from about post")
-})
-app.put('/about', (req, res) => {
-    res.send("I am from about put")
-})
-app.delete('/about', (req, res) => {
-    res.send("I am from about delete")
+app.use((req, res) => {
+    res.send('<h1>Error 404! Not found!</h1>>')
 })
 
 
