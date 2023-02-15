@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+var encrypt = require('mongoose-encryption');
 
 const userSchema = new mongoose.Schema({
 
@@ -16,5 +17,11 @@ const userSchema = new mongoose.Schema({
     }
 
 })
+
+const encKey = process.env.ENC_KEY;
+
+// encrypt age regardless of any other options. name and _id will be left unencrypted
+userSchema.plugin(encrypt, { secret: encKey, encryptedFields: ['password'] });
+
 
 module.exports = mongoose.model('User', userSchema);
