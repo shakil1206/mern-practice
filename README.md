@@ -20,4 +20,39 @@
     5. .env file
     6. Middlewares
     7. Static middlewares
-    14. MVC (Model, View, Controller) architecture/Pattern
+    8. MVC (Model, View, Controller) architecture/Pattern
+
+### Local Module practice
+
+- example 1
+
+```js
+//Student.js
+const getStudentName = () => {
+    return "Md Shakil Ahmed";
+}
+
+const studentAge = () => {
+    return 18;
+}
+
+// Export local module
+module.exports = {
+    getStudentName,
+    studentAge
+}
+```
+
+- example 2
+
+```js
+//index.js
+
+// import local module
+const {getStudentName} = require('./student.js');
+//This line get everthing from student.js file.
+
+console.log(getStudentName())
+// console.log(student.studentAge())
+
+```
