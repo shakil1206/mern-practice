@@ -151,3 +151,80 @@ console.log(path)
 
 
 ```
+
+
+### Default Built-in module-> http
+
+
+- Example of a node.js http server
+
+```js
+//Create http server
+const http = require('http');
+
+// console.log(http)
+const PORT = 3000;
+const hostName = '127.0.0.1';
+
+const server = http.createServer((req, res) => {
+    res.writeHead(202, { 'Content-type': 'text/html' })
+    res.write("<h1>Hi I am from new server...</h1>")
+    res.end()
+});
+
+server.listen(PORT, hostName, () => {
+    console.log(`Your server is running at: http://${hostName}:${PORT}`)
+})
+
+
+```
+
+
+### Response, Request and status code practice by using http
+
+
+```js
+//Practice5 folder/directory example
+
+const http = require('http')
+const fs = require('fs')
+const port = 3000;
+const hostname = '127.0.0.1';
+
+const server = http.createServer((req, res) => {
+
+    // Create default reusable method for every route
+    const handleReadFile = (statusCode, fileLocation) => {
+        fs.readFile(fileLocation, (error, data) => {
+            res.writeHead(statusCode, { 'content-type': 'text/html' })
+            res.write(data)
+            res.end()
+        })
+    }
+
+    //Home route
+    if (req.url === '/') {
+        handleReadFile(200, './views/home.html')
+
+    } else if (req.url === '/about') {
+        //About route
+        handleReadFile(200, './views/about.html')
+
+    } else if (req.url === '/contact') {
+        //Contact route
+        handleReadFile(200, './views/contact.html')
+
+    } else {
+        //Others notfound router
+        handleReadFile(404, './views/notfound.html')
+
+    }
+
+    // res.end("<h1>Welcome to the server Nodemone end</h1>")
+})
+
+server.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}`)
+})
+
+```
