@@ -11,5 +11,13 @@
     4. Default Built-in module-> http
     5. Response, Request and status code practice by using http
     6. http CRUD
-    
+
 2. Express.js
+    1. Create Express server
+    2. Express router
+    3. Express CRUD app
+    4. Express json, body-parser
+    5. .env file
+    6. Middlewares
+    7. Static middlewares
+    14. MVC (Model, View, Controller) architecture/Pattern
