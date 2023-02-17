@@ -22,9 +22,8 @@
     7. Static middlewares
     8. MVC (Model, View, Controller) architecture/Pattern
 
+#### Node.js
 ### Local Module practice
-
-- example 1
 
 ```js
 //Student.js
@@ -43,8 +42,6 @@ module.exports = {
 }
 ```
 
-- example 2
-
 ```js
 //index.js
 
@@ -56,3 +53,6 @@ console.log(getStudentName())
 // console.log(student.studentAge())
 
 ```
+
+
+
